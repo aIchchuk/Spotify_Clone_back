@@ -1,5 +1,5 @@
-import { Album } from "../models/album.model";
-import { Song } from "../models/song.model";
+import { Album } from "../models/album.model.js";
+import { Song } from "../models/song.model.js";
 import { User } from "../models/userModel.js";
 export const getStats = async (req, res, next) => {
     try {
