@@ -4,14 +4,17 @@ import { checkAdmin, createSong, deleteSong, createAlbum, deleteAlbum } from "..
 
 const router = Router();
 
-router.get('/check', protectRoute, requireAdmin, checkAdmin);
+//slightly optimized clean code
+router.use(protectRoute, requireAdmin)
 
-router.post('/songs', protectRoute, requireAdmin, createSong);
-router.delete('/songs:id', protectRoute, requireAdmin, deleteSong);
+router.get('/check', checkAdmin);
+
+router.post('/songs', createSong);
+router.delete('/songs:id', deleteSong);
 
 
-router.post('/albums', protectRoute, requireAdmin, createAlbum);
-router.delete('/albums:id', protectRoute, requireAdmin, deleteAlbum);
+router.post('/albums', createAlbum);
+router.delete('/albums:id', deleteAlbum);
 
 export default router;
 
